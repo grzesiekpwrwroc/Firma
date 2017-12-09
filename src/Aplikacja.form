@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Aplikacja">
+  <grid id="27dc6" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="43" y="28" width="477" height="392"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <vspacer id="10cc3">
+        <constraints border-constraint="Center"/>
+      </vspacer>
+    </children>
+  </grid>
+</form>
