@@ -105,7 +105,7 @@ public class Pracownik {
     }
 
     public boolean czyPensjaPowyzej(float prog){
-        return getPensja()>prog*2;
+        return getPensja()>prog;
     }
 
     public void dajPodwyzke(float procent){
