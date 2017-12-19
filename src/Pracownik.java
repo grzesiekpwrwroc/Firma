@@ -1,4 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pracownik {
+
+    /*public enum Plec{
+        MALE, FEMALE;
+    }*/
 
 
     private String imie;
@@ -11,7 +18,6 @@ public class Pracownik {
     private boolean stanCywilny;
 
 
-
     public Pracownik(String imie, String nazwisko, char plec, int numerDzialu, float pensja, int rokUrodzenia, int iloscDzieci, boolean stanCywilny) {
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -21,6 +27,11 @@ public class Pracownik {
         this.rokUrodzenia = rokUrodzenia;
         this.iloscDzieci = iloscDzieci;
         this.stanCywilny = stanCywilny;
+
+    }
+
+    public Pracownik() {
+
     }
 
     public String getImie() {

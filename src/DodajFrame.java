@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MyFrame extends JFrame implements ActionListener, MouseListener {
+public class DodajFrame extends JFrame implements ActionListener, MouseListener {
 
     JTextField tekstFieldMail;
     private JTextField tekstFieldImie;
@@ -32,23 +32,30 @@ public class MyFrame extends JFrame implements ActionListener, MouseListener {
     JLabel labelIloscDzieci;
     JLabel labelPensja;
 
+    private static List<Pracownik> lista = new ArrayList<>();
+
+    public static List<Pracownik> getLista() {
+        return lista;
+    }
+
+
 
     int tekst;
     String tekst2;
     private static String walidacjaWiadomosc;
 
     public static void setWalidacjaWiadomosc(String walidacjaWiadomosc) {
-        MyFrame.walidacjaWiadomosc = walidacjaWiadomosc;
+        DodajFrame.walidacjaWiadomosc = walidacjaWiadomosc;
     }
     public static String getWalidacjaWiadomosc(){
         return walidacjaWiadomosc;
     }
 
-    List<Pracownik> lista = new ArrayList<>();
 
-    public MyFrame() {
+
+    public DodajFrame() {
         super("Dodaj pracownika");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(600, 600);
         setLocation(10, 10);
         setLayout(null);
@@ -152,7 +159,7 @@ public class MyFrame extends JFrame implements ActionListener, MouseListener {
                     Integer.parseInt(tekstFieldPensja.getText()),
                     Integer.parseInt(tekstFieldRokUrodzenia.getText()),Integer.parseInt(tekstFieldIloscDzieci.getText()),
                     tekstFieldStanCywilny.isSelected());
-            lista.add(pracownik);
+            getLista().add(pracownik);
             dispose();
         } else JOptionPane.showMessageDialog(null, getWalidacjaWiadomosc());
     }

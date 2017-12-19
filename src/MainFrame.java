@@ -22,7 +22,14 @@ public class MainFrame extends JFrame {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MyFrame();
+                new DodajFrame();
+            }
+        });
+
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new WyswietlFrame();
             }
         });
     }
