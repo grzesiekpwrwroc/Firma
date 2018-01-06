@@ -1,21 +1,22 @@
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ModelData extends AbstractTableModel {
 
     //new ArrayList<Pracownik>();
-    List<Pracownik> data = DodajFrame.getLista();
+    List<Pracownik> data;
+    //List<Pracownik> data = (Filtry.filtrujPensjaPowyzejProgu(DodajFrame.getLista(),9000));
+    //List<Pracownik> data=Filtry.filtrujRokUrodzaniaPowyzejProgu(Filtry.filtrujPensjaPowyzejProgu(DodajFrame.getLista(),9000),1980);
     String colNames[] = { "Imie", "Nazwisko", "Rok urodzenia","Płeć", "Dział","Stan cywilny","Ilość dzieci", "Pensja" };
     Class<?> colClasses[] = { String.class, String.class, Integer.class, Character.class, Integer.class, Boolean.class,Integer.class, Integer.class };
 
-    ModelData() {
+    public List<Pracownik> setData(List<Pracownik>lista){
+        data=lista;
+        return data;
+    }
 
-        /*data.add(new Data("name 1", "type 1", new Date()));
-        data.add(new Data("name 2", "type 2", new Date()));
-        data.add(new Data("name 3", "type 3", new Date()));*/
-
+    ModelData(List<Pracownik> lista) {
+        data=lista;
     }
 
     public int getRowCount() {
