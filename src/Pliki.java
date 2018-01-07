@@ -62,7 +62,6 @@ public class Pliki {
     private static void dodajParametr(Pracownik pracownik, int licznik, String slowo) {
         //pracownik = new Pracownik();
         if (licznik == 1)
-
             pracownik.setImie(slowo);//String.valueOf(slowo));
         if (licznik == 2)
             pracownik.setNazwisko(slowo);//String.valueOf(slowo));
