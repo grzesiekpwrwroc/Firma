@@ -17,6 +17,7 @@ public class FiltrujFrame {
     JTable table;
     List<Pracownik> lista;
     List<Pracownik> listaFiltrowana;
+    List<Pracownik> listaFiltrowana2;
 
     FiltrujFrame(int licznik) {
         JFrame ramka = new JFrame();
@@ -54,10 +55,10 @@ public class FiltrujFrame {
     class ParametryPanel extends JPanel {
         ParametryPanel() {
             //setLayout(null);
-            JButton b1 = new JButton("Filtruj pensja");
-            JButton b2 = new JButton("Filtruj rok urodzenia");
-            JButton b3 = new JButton("Filtruj płeć");
-            JButton b4 = new JButton("Filtruj dział");
+            JToggleButton b1 = new JToggleButton("Filtruj pensja");
+            JToggleButton b2 = new JToggleButton("Filtruj rok urodzenia");
+            JToggleButton b3 = new JToggleButton("Filtruj płeć");
+            JToggleButton b4 = new JToggleButton("Filtruj dział");
             //JButton b5 = new JButton("Filtruj singli");
             JTextField textFieldPensja = new JTextField("Podaj kwotę");
             JTextField textFieldRokUrodzenia = new JTextField("Podaj rok urodzenia");
@@ -82,12 +83,17 @@ public class FiltrujFrame {
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if(Validation.validatePensja(textFieldPensja)){
-                    listaFiltrowana = Filtry.filtrujPensjaPowyzejProgu(listaFiltrowana,Integer.parseInt(textFieldPensja.getText()));
-                    ModelData model = new ModelData(listaFiltrowana);
-                    table.setModel(model);}
-                    else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
-                    //table.setRowSorter(new TableRowSorter(model));
+                    if(b1.isSelected())
+                        if(Validation.validatePensja(textFieldPensja)){
+                            listaFiltrowana = Filtry.filtrujPensjaPowyzejProgu(listaFiltrowana,Integer.parseInt(textFieldPensja.getText()));
+                            ModelData model = new ModelData(listaFiltrowana);
+                            table.setModel(model);}
+                        else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
+                    else{
+                        listaFiltrowana2=listaFiltrowana;
+                        ModelData model = new ModelData(listaFiltrowana);
+                        table.setModel(model);
+                    }
                 }
             });
 
@@ -95,11 +101,17 @@ public class FiltrujFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //List<Pracownik> listaFiltrowana=lista;
-                    if(Validation.validateRokUrodzenia(textFieldRokUrodzenia)){
-                    listaFiltrowana = Filtry.filtrujRokUrodzaniaPowyzejProgu(listaFiltrowana, Integer.parseInt(textFieldRokUrodzenia.getText()));
-                    ModelData model = new ModelData(listaFiltrowana);
-                    table.setModel(model); }//= new JTable(new ModelData(listaFiltrowana));
-                    else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
+                    if(b2.isSelected())
+                        if(Validation.validateRokUrodzenia(textFieldRokUrodzenia)){
+                            listaFiltrowana = Filtry.filtrujRokUrodzaniaPowyzejProgu(listaFiltrowana, Integer.parseInt(textFieldRokUrodzenia.getText()));
+                            ModelData model = new ModelData(listaFiltrowana);
+                            table.setModel(model); }//= new JTable(new ModelData(listaFiltrowana));
+                        else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
+                    else{
+                        listaFiltrowana2=listaFiltrowana;
+                        ModelData model = new ModelData(listaFiltrowana2);
+                        table.setModel(model);
+                    }
                 }
             });
 
@@ -107,32 +119,37 @@ public class FiltrujFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //List<Pracownik> listaFiltrowana=lista;
-                    if(Validation.validatePlec(textFieldPlec)){
-                        listaFiltrowana = Filtry.filtrujPlec(listaFiltrowana, (textFieldPlec.getText().charAt(0)));
-                        ModelData model = new ModelData(listaFiltrowana);
-                        table.setModel(model); }//= new JTable(new ModelData(listaFiltrowana));
-                    else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
+                    if(b3.isSelected())
+                        if(Validation.validatePlec(textFieldPlec)){
+                            listaFiltrowana = Filtry.filtrujPlec(listaFiltrowana, (textFieldPlec.getText().charAt(0)));
+                            ModelData model = new ModelData(listaFiltrowana);
+                            table.setModel(model); }//= new JTable(new ModelData(listaFiltrowana));
+                        else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
+                    else{
+                        listaFiltrowana2=listaFiltrowana;
+                        ModelData model = new ModelData(listaFiltrowana2);
+                        table.setModel(model);
+                    }
                 }
             });
 
             b4.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //List<Pracownik> listaFiltrowana=lista;
-                    //b4.setSelected(true);
-                    if(b4.isSelected()==false){
-                        if(Validation.validateDzial(textFieldDzial)){
-                            listaFiltrowana = Filtry.filtrujDzial(listaFiltrowana, Integer.parseInt(textFieldDzial.getText()));
-                            ModelData model = new ModelData(listaFiltrowana);
-                            table.setModel(model); //= new JTable(new ModelData(listaFiltrowana));
-                            b4.setSelected(true);
-                            b4.setBackground(Color.BLUE);}
-                        else JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());}
-                    else {
-                        b4.setSelected(false);
-                        b4.setBackground(Color.BLACK);
-                    }
 
+                    if (b4.isSelected())
+                        if (Validation.validateDzial(textFieldDzial)) {
+                            listaFiltrowana = Filtry.filtrujDzial(listaFiltrowana, Integer.parseInt(textFieldDzial.getText()));
+                            ModelData model = new ModelData(listaFiltrowana2);
+                            table.setModel(model);
+                        }
+                         else
+                            JOptionPane.showMessageDialog(null, DodajFrame.getWalidacjaWiadomosc());
+                    else{
+                        listaFiltrowana2=listaFiltrowana;
+                        ModelData model = new ModelData(listaFiltrowana2);
+                        table.setModel(model);
+                    }
                 }
             });
             textFieldPensja.addMouseListener(new MouseListener() {
