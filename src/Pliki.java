@@ -76,7 +76,7 @@ public class Pliki {
         if (licznik == 7)
             pracownik.setIloscDzieci(Integer.parseInt(slowo));
         if (licznik == 8)
-            pracownik.setStanCywilny(Boolean.getBoolean(slowo));
+            pracownik.setStanCywilny(Boolean.valueOf(slowo));
 
     }
 }
