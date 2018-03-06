@@ -44,12 +44,12 @@ public class DodajFrame extends JFrame implements ActionListener, MouseListener 
     String tekst2;
     private static String walidacjaWiadomosc;
 
-    public static void setWalidacjaWiadomosc(String walidacjaWiadomosc) {
-        DodajFrame.walidacjaWiadomosc = walidacjaWiadomosc;
+   /* public void setWalidacjaWiadomosc(String walidacjaWiadomosc1) {
+        walidacjaWiadomosc = walidacjaWiadomosc1;
     }
     public static String getWalidacjaWiadomosc(){
         return walidacjaWiadomosc;
-    }
+    } */
 
 
 
@@ -161,14 +161,14 @@ public class DodajFrame extends JFrame implements ActionListener, MouseListener 
                     tekstFieldStanCywilny.isSelected());
             getLista().add(pracownik);
             dispose();
-        } else JOptionPane.showMessageDialog(null, getWalidacjaWiadomosc());
+        } else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
     }
 
     public boolean isValidate() {
-        return Validation.validateMail(tekstFieldMail)&& Validation.validateImie(tekstFieldImie)
-                && Validation.validateNazwisko(tekstFieldNazwisko) && Validation.validateRokUrodzenia(tekstFieldRokUrodzenia)
-                && Validation.validateDzial(tekstFieldDzial) && Validation.validatePlec(tekstFieldPlec)
-                && Validation.validateIloscDzieci(tekstFieldIloscDzieci) && Validation.validatePensja(tekstFieldPensja);
+        return Validation.validateMail(tekstFieldMail.getText())&& Validation.validateImie(tekstFieldImie.getText())
+                && Validation.validateNazwisko(tekstFieldNazwisko.getText()) && Validation.validateRokUrodzenia(tekstFieldRokUrodzenia.getText())
+                && Validation.validateDzial(tekstFieldDzial.getText()) && Validation.validatePlec(tekstFieldPlec.getText())
+                && Validation.validateIloscDzieci(tekstFieldIloscDzieci.getText()) && Validation.validatePensja(tekstFieldPensja.getText());
     }
 
     @Override

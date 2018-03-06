@@ -15,7 +15,7 @@ public class WyswietlFrame extends JFrame {
             //JButton przyciskFiltruj=new JButton("Filtruj");
             //add(przyciskFiltruj,BorderLayout.WEST);
             //JTable table2 = new JTable(new ModelData((Filtry.filtrujPensjaPowyzejProgu(10000)).filtrujRokUrodzeniaPowyzejProgu(1980)));
-           JTable table2 = new JTable(new ModelData(Filtry.filtrujRokUrodzaniaPowyzejProgu(Filtry.filtrujPensjaPowyzejProgu(DodajFrame.getLista(),9900),1980)));
+           JTable table2 = new JTable(new ModelData(Filtry.filtrujRokUrodzaniaPowyzejProgu(true,Filtry.filtrujPensjaPowyzejProgu(true,DodajFrame.getLista(),9900),1980)));
            // table2.setBounds(10,600,200,200);
             //add(new JScrollPane(table));
             //add(new JScrollPane(table2));

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class ModelData extends AbstractTableModel {
     //List<Pracownik> data = (Filtry.filtrujPensjaPowyzejProgu(DodajFrame.getLista(),9000));
     //List<Pracownik> data=Filtry.filtrujRokUrodzaniaPowyzejProgu(Filtry.filtrujPensjaPowyzejProgu(DodajFrame.getLista(),9000),1980);
     String colNames[] = { "Imie", "Nazwisko", "Rok urodzenia","Płeć", "Dział","Stan cywilny","Ilość dzieci", "Pensja" };
-    Class<?> colClasses[] = { String.class, String.class, Integer.class, Character.class, Integer.class, Boolean.class,Integer.class, Integer.class };
+    Class<?> colClasses[] = { String.class, String.class, Integer.class, Character.class, Integer.class, Boolean.class,Integer.class, Float.class };
 
     public List<Pracownik> setData(List<Pracownik>lista){
         data=lista;
@@ -69,14 +70,44 @@ public class ModelData extends AbstractTableModel {
 
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         if (columnIndex == 0) {
+            if(Validation.validateImie(aValue.toString()))
             data.get(rowIndex).setImie((String) aValue);
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
         if (columnIndex == 1) {
+            if(Validation.validateNazwisko(aValue.toString()))
             data.get(rowIndex).setNazwisko((String) aValue);
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
         if (columnIndex == 2) {
+            if(Validation.validateRokUrodzenia(aValue.toString()))
             data.get(rowIndex).setRokUrodzenia((Integer) aValue);
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
+        if (columnIndex == 3) {
+            if(Validation.validatePlec(aValue.toString()))
+            data.get(rowIndex).setPlec((Character) aValue);
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
+        }
+        if (columnIndex == 4) {
+            if(Validation.validateDzial(aValue.toString()))
+            data.get(rowIndex).setNumerDzialu((Integer) aValue);
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
+        }
+        if (columnIndex == 5) {
+            data.get(rowIndex).setStanCywilny((Boolean) aValue);
+        }
+        if (columnIndex == 6) {
+            if(Validation.validateIloscDzieci(aValue.toString()))
+            data.get(rowIndex).setIloscDzieci((Integer) aValue);
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
+        }
+        if (columnIndex == 7) {
+            if(Validation.validatePensja(aValue.toString()))
+            data.get(rowIndex).setPensja(Float.parseFloat( aValue.toString()));
+            else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
+        }
+
         fireTableCellUpdated(rowIndex, columnIndex);
     }
 }
