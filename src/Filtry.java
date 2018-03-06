@@ -41,14 +41,6 @@ public class Filtry {
         else return lista;
     }
 
-    /*public static List<Pracownik> filtrujRokUrodzaniaPowyzejProgu1( int prog) {
-
-        List<Pracownik> wynik = getLista()
-                .stream()
-                .filter(t -> t.getRokUrodzenia() > prog)
-                .collect(toList());
-        return wynik;
-    }*/
 
     public static List<Pracownik> filtrujRokUrodzaniaPowyzejProgu(boolean stan,List<Pracownik> lista, int prog) {
 
@@ -62,29 +54,11 @@ public class Filtry {
     }
 
 
-   /* public static List<Pracownik> filtrujPlec1(List<Pracownik> lista, char znak) {
-
-        List<Pracownik> wynik = new ArrayList<>();
-        for (Pracownik t : lista) {
-            if (Objects.equals(znak,t.getPlec())) {
-                wynik.add(t);
-            }
-        }
-        return wynik;
-    }*/
-
     public static List<Pracownik> filtrujPlec(boolean stan,List<Pracownik> lista, char znak) {
 
-        Map<Character,Boolean> mapa = new HashMap<>();
-        mapa.put('1',true);
-        mapa.put('2',false);
-        mapa.put('3',false);
-        mapa.put('4',true);
         List<Pracownik> wynik = lista
                 .stream()
                 .filter(t -> t.getPlec()==znak)
-                //.filter(t ->t.getNumerDzialu()==(mapa.get((Object)'1'))||(mapa.get((Object)'2')==true)||(mapa.get((Object)'3')==true)||(mapa.get((Object)'4')==true)
-                //.filter(t -> t.getRokUrodzenia()=='K')
                 .collect(toList());
         if(stan)
         return wynik;
