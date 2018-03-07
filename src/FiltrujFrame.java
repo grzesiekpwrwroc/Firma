@@ -48,6 +48,8 @@ public class FiltrujFrame {
             //super();
             table = new JTable(new ModelData(lista));
             table.setSize(800, 500);
+            table.setEnabled(false);
+
             add(new JScrollPane(table),BorderLayout.PAGE_START);
         }
     }

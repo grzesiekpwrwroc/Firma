@@ -18,6 +18,7 @@ public class ModelData extends AbstractTableModel {
 
     ModelData(List<Pracownik> lista) {
         data=lista;
+
     }
 
     public int getRowCount() {
@@ -68,6 +69,8 @@ public class ModelData extends AbstractTableModel {
         return true;
     }
 
+
+
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         if (columnIndex == 0) {
             if(Validation.validateImie(aValue.toString()))
@@ -76,7 +79,7 @@ public class ModelData extends AbstractTableModel {
         }
         if (columnIndex == 1) {
             if(Validation.validateNazwisko(aValue.toString()))
-            data.get(rowIndex).setNazwisko((String) aValue);
+            data.get(rowIndex).setNazwisko(aValue.toString());
             else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
         if (columnIndex == 2) {
@@ -84,9 +87,10 @@ public class ModelData extends AbstractTableModel {
             data.get(rowIndex).setRokUrodzenia((Integer) aValue);
             else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
+
         if (columnIndex == 3) {
-            if(Validation.validatePlec(aValue.toString()))
-            data.get(rowIndex).setPlec((Character) aValue);
+            if(Validation.validatePlec(aValue.toString())){
+                data.get(rowIndex).setPlec(Character.valueOf(aValue.toString().charAt(0)));}
             else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
         if (columnIndex == 4) {
@@ -108,6 +112,12 @@ public class ModelData extends AbstractTableModel {
             else JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
         }
 
+
+
         fireTableCellUpdated(rowIndex, columnIndex);
+    }
+
+    public void removeRow(int wiersz) {
+        data.remove(wiersz);
     }
 }

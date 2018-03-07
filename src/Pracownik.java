@@ -99,8 +99,8 @@ public class Pracownik {
     }
 
 
-    public void wyswietlPracownika(){
-        System.out.println("Imie:"+this.imie +" Nazwisko:" +this.nazwisko+ " Płeć:"+this.plec +" Numer dzialu:"+ this.numerDzialu+ " Pensja:"+this.pensja+" Rok urodzenia"+ this.rokUrodzenia+" Ilość dzieci:"+this.iloscDzieci+" Stan cywilny:"+this.stanCywilny);
+    public String wyswietlPracownika(){
+        return this.imie +" " +this.nazwisko+ " "+this.plec +" "+ this.numerDzialu+ " "+this.pensja+" "+ this.rokUrodzenia+" "+this.iloscDzieci+" "+this.stanCywilny;
     }
 
     public void wyswietlPracownikaOkrojona(){
