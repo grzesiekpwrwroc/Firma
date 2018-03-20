@@ -162,7 +162,7 @@ public class Pracownik {
         //}
     }
 
-    public static void logikaPozyczki(List<Pracownik> lista, float procent) {
+    public static void logikaPodwyzki(List<Pracownik> lista, float procent) {
         setWiadomosc("");
         if (Statystyki.sredniaArytmetyczna() < 5000 || Statystyki.pierwszyKwartyl() < 2500 || Statystyki.mediana() < 4000) {
             if (Statystyki.trzeciKwartyl() < Statystyki.sredniaArytmetyczna() * 1.5) {
@@ -248,7 +248,7 @@ public class Pracownik {
                 return lista;
             }
         } else {
-            logikaPozyczki(kopia, procent);
+            logikaPodwyzki(kopia, procent);
 
             if (sumaZarobkow(kopia) <= budzet) {
 
