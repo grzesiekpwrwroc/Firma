@@ -60,23 +60,29 @@ public class Pliki {
     }
 
     private static void dodajParametr(Pracownik pracownik, int licznik, String slowo) {
-        //pracownik = new Pracownik();
-        if (licznik == 1)
-            pracownik.setImie(slowo);//String.valueOf(slowo));
-        if (licznik == 2)
-            pracownik.setNazwisko(slowo);//String.valueOf(slowo));
-        if (licznik == 3)
-            pracownik.setPlec(slowo.charAt(0));
-        if (licznik == 4)
-            pracownik.setNumerDzialu(Integer.parseInt(slowo));//Integer.parseInt(String.valueOf(slowo)));
-        if (licznik == 5)
-            pracownik.setPensja(Float.parseFloat(slowo));//Float.valueOf(String.valueOf(slowo)));
-        if (licznik == 6)
-            pracownik.setRokUrodzenia(Integer.parseInt(slowo));
-        if (licznik == 7)
-            pracownik.setIloscDzieci(Integer.parseInt(slowo));
-        if (licznik == 8)
-            pracownik.setStanCywilny(Boolean.valueOf(slowo));
+        //pracownik.dajPodwyzke(3);
+        try {
+            //pracownik = new Pracownik();
+            if (licznik == 1)
+                pracownik.setImie(slowo);//String.valueOf(slowo));
+            if (licznik == 2)
+                pracownik.setNazwisko(slowo);//String.valueOf(slowo));
+            if (licznik == 3)
+                pracownik.setPlec(slowo.charAt(0));
+            if (licznik == 4)
+                pracownik.setNumerDzialu(Integer.parseInt(slowo));//Integer.parseInt(String.valueOf(slowo)));
+            if (licznik == 5)
+                pracownik.setPensja(Float.parseFloat(slowo));//Float.valueOf(String.valueOf(slowo)));
+            if (licznik == 6)
+                pracownik.setRokUrodzenia(Integer.parseInt(slowo));
+            if (licznik == 7)
+                pracownik.setIloscDzieci(Integer.parseInt(slowo));
+            if (licznik == 8)
+                pracownik.setStanCywilny(Boolean.valueOf(slowo));
+        }
+        catch(NumberFormatException e){
+            System.out.println("Zły format" + e.getMessage());
+        }
 
     }
 }

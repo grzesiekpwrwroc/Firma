@@ -3,12 +3,8 @@
 
 
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.Collections.sort;
 import static java.util.stream.Collectors.toList;
 
 
@@ -21,13 +17,11 @@ public class Filtry {
 
     public static long zliczPensjaPowyzejProgu(List<Pracownik> lista, int prog) {
 
-        long wynik = lista
+        return lista
                 //Stream.of(lista)
                 .stream()
                 .filter(t -> t.getPensja() > prog)
                 .count();
-
-        return wynik;
     }
 
     public static List<Pracownik> filtrujPensjaPowyzejProgu(boolean stan,List<Pracownik> lista, int prog) {
@@ -68,14 +62,11 @@ public class Filtry {
     public static List<Pracownik> filtrujDzial(boolean stan,List<Pracownik> lista, String dzialy) {
 
 
-        Predicate<Pracownik> predicate = new Predicate<Pracownik>() {
-            @Override
-            public boolean test(Pracownik pracownik) {
-                Map<Integer, Boolean> mapa = new HashMap<>();
-                mapa=czytajDzialy(dzialy);
-                return (pracownik.getNumerDzialu() == 1 && mapa.get(1)) || (pracownik.getNumerDzialu() == 2 && mapa.get(2))
-                        || (pracownik.getNumerDzialu() == 3 && mapa.get(3)) || (pracownik.getNumerDzialu() == 4 && mapa.get(4)) ? true : false;
-            }
+        Predicate<Pracownik> predicate = pracownik -> {
+            Map<Integer, Boolean> mapa = new HashMap<>();
+            mapa=czytajDzialy(dzialy);
+            return (pracownik.getNumerDzialu() == 1 && mapa.get(1)) || (pracownik.getNumerDzialu() == 2 && mapa.get(2))
+                    || (pracownik.getNumerDzialu() == 3 && mapa.get(3)) || (pracownik.getNumerDzialu() == 4 && mapa.get(4));
         };
 
        List<Pracownik> wynik = lista

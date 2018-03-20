@@ -11,9 +11,9 @@ public class ModelData extends AbstractTableModel {
     String colNames[] = { "Imie", "Nazwisko", "Rok urodzenia","Płeć", "Dział","Stan cywilny","Ilość dzieci", "Pensja" };
     Class<?> colClasses[] = { String.class, String.class, Integer.class, Character.class, Integer.class, Boolean.class,Integer.class, Float.class };
 
-    public List<Pracownik> setData(List<Pracownik>lista){
+    public void setData(List<Pracownik>lista){
         data=lista;
-        return data;
+
     }
 
     ModelData(List<Pracownik> lista) {

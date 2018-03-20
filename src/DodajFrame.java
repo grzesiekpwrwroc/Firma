@@ -38,20 +38,18 @@ public class DodajFrame extends JFrame implements ActionListener, MouseListener 
         return lista;
     }
 
+    public static void setLista(List<Pracownik> lista1){
+        //lista.clear();
+        //lista.addAll(lista1);
+        //lista=lista1;
+        lista=lista1;
+    }
+
 
 
     int tekst;
     String tekst2;
     private static String walidacjaWiadomosc;
-
-   /* public void setWalidacjaWiadomosc(String walidacjaWiadomosc1) {
-        walidacjaWiadomosc = walidacjaWiadomosc1;
-    }
-    public static String getWalidacjaWiadomosc(){
-        return walidacjaWiadomosc;
-    } */
-
-
 
     public DodajFrame() {
         super("Dodaj pracownika");
