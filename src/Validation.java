@@ -88,8 +88,14 @@ public class Validation {
         }
     }
 
-    @SuppressWarnings("Annotator")
+
+
     public static boolean validateDzialy(String dzialy) {
+        return Pattern.matches("^[1-4](,[1-4])*$", dzialy);
+    }
+
+    @SuppressWarnings("Annotator")
+    public static boolean validateDzialy1(String dzialy) {
        if (dzialy.length() != 0 && dzialy.length() != 1 && dzialy.length() != 3 && dzialy.length() != 5 && dzialy.length() != 7) {
             setWalidacjaWiadomosc("Format wejścia to NR,NR,NR,NR");
             return false;

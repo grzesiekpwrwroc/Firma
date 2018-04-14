@@ -153,98 +153,12 @@ public class FiltrujFrame {
                 }
             });
 
-            textFieldPensja.addMouseListener(new MouseListener() {
-                boolean stann;
-                @Override
-                public void mouseClicked(MouseEvent e) {
+            textFieldPensja.addMouseListener(new ClickListener(mouseEvent -> {textFieldPensja.setText("");}));
+            textFieldRokUrodzenia.addMouseListener(new ClickListener(mouseEvent -> {textFieldRokUrodzenia.setText("");}));
+            textFieldPlec.addMouseListener(new ClickListener(mouseEvent -> {textFieldPlec.setText("");}));
+            textFieldDzial.addMouseListener(new ClickListener(mouseEvent -> {textFieldDzial.setText("");}));
 
-                    if(!stann){
-                    textFieldPensja.setText("");
-                    stann=true;}
-                }
 
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                }
-            });
-            textFieldRokUrodzenia.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    textFieldRokUrodzenia.setText("");
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                }
-            });
-            textFieldPlec.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    textFieldPlec.setText("");
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                }
-            });
-            textFieldDzial.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    textFieldDzial.setText("");
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                }
-            });
 
         }
 
