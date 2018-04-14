@@ -24,6 +24,15 @@ public class Filtry {
                 .count();
     }
 
+    public static long zliczIlePracownikowWDzialach(List<Pracownik> lista,int dzial) {
+
+        return lista
+                //Stream.of(lista)
+                .stream()
+                .filter(p->p.getNumerDzialu()==dzial)
+                .count();
+    }
+
     public static List<Pracownik> filtrujPensjaPowyzejProgu(boolean stan,List<Pracownik> lista, int prog) {
 
         List<Pracownik> wynik = lista
