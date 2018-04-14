@@ -1,10 +1,11 @@
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Pliki {
 
-    public static void odcztajPlik() {
+    public static void odczytajPlik() {
 
         Pracownik pracownik = new Pracownik();
 

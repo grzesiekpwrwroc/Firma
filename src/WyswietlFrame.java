@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+
+
+
 public class WyswietlFrame extends JFrame {
 
         WyswietlFrame(){
@@ -25,23 +28,30 @@ public class WyswietlFrame extends JFrame {
             add(new JScrollPane(dajPodwyzke),BorderLayout.EAST);
 
             dajPodwyzke.addActionListener(e -> {
+
                 ModelData model = (ModelData) table.getModel();
                 Pracownik wybrany = null;
                 try{
                     int wiersz = table.getSelectedRow();
                     wybrany = model.data.get(wiersz);
-
+                    if(Validation.validateProcentPodwyzki(tekstFieldProcent.getText())&&Validation.validateBudzetPodwyzki(tekstFieldBudzet.getText()))
                     DodajFrame.setLista(Pracownik.czyPodwyzkaMozliwa(wybrany,Float.parseFloat(tekstFieldProcent.getText()),Long.parseLong(tekstFieldBudzet.getText())));
                     //new ModelData(Pracownik.czyPodwyzkaMozliwa(wybrany,Float.parseFloat(tekstFieldProcent.getText()),Long.parseLong(tekstFieldBudzet.getText())));
                    // model.setData(DodajFrame.getLista());//=new ModelData(DodajFrame.getLista());
+                    else
+                        JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
                     model = new ModelData(DodajFrame.getLista());
                     table.setModel(model);
                 }catch(Exception e1){
+                    if(Validation.validateProcentPodwyzki(tekstFieldProcent.getText())&&Validation.validateBudzetPodwyzki(tekstFieldBudzet.getText()))
                     DodajFrame.setLista(Pracownik.czyPodwyzkaMozliwa(null,Float.parseFloat(tekstFieldProcent.getText()),Long.parseLong(tekstFieldBudzet.getText())));
                     //JOptionPane.showMessageDialog(null,"Błąd");
+                    else
+                        JOptionPane.showMessageDialog(null, Validation.getWalidacjaWiadomosc());
                     model = new ModelData(DodajFrame.getLista());
                     table.setModel(model);
                 }table.updateUI();
+                //Wykresy.main();
             });
 
 

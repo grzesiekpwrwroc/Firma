@@ -179,6 +179,30 @@ public class Validation {
         }
     }
 
+    public static boolean validateProcentPodwyzki(String procent){
+        if(procent.length()==0){
+            setWalidacjaWiadomosc("Proszę podać procent podwyżki");
+            return false;
+        }
+        else if(Pattern.matches("\\d+", procent)){
+            if(Float.parseFloat(procent)>=1 && Float.parseFloat(procent)<100)
+                return true;
+        }
+        setWalidacjaWiadomosc("Procent podwyżki to liczba z przedziału 1,100");
+        return false;
+    }
+    public static boolean validateBudzetPodwyzki(String budzet){
+        if(budzet.length()==0){
+            setWalidacjaWiadomosc("Proszę podać budżet podwyżki");
+            return false;
+        }
+        else if(Pattern.matches("\\d+", budzet)){
+            return true;
+        }
+        setWalidacjaWiadomosc("Budżet to dodatnia liczba");
+        return false;
+    }
+
 
     public static void setWalidacjaWiadomosc(String wiadomosc) {
         walidacjaWiadomosc = wiadomosc;
