@@ -1,5 +1,5 @@
 Grzegorz,Jarus,m,2,2800,1989,1,true,
-Michal,Zieliński,m,3,5300,1991,2,false,
+Michal,Zielinski,m,3,5300,1991,2,false,
 Michal,Labudzinski,m,1,10000,1987,2,true,
 Katarzyna,Jarus,k,1,2800,1993,1,true,
 Ada,Nowak,k,3,1300,1992,0,false,
