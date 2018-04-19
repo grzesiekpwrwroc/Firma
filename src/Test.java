@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Test {
     public static void main(String[] args) {
-        Pliki.odczytajPlik();
+        Files.readFile();
         EventQueue.invokeLater(() -> new MainFrame());
     }
 }

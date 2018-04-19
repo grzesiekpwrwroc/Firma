@@ -13,26 +13,26 @@ import java.awt.event.MouseEvent;
 import javafx.event.Event;
 
 
-public class Wykresy extends Application {
+public class Charts extends Application {
 
 
     @Override
     public void start(Stage stage) {
-        Pliki.odczytajPlik();
+        Files.readFile();
         Scene scene = new Scene(new Group());
-        stage.setTitle("Statystyki działów");
+        stage.setTitle("Department statistics");
         stage.setWidth(500);
         stage.setHeight(500);
 
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
-                        new PieChart.Data("Dzial 1", Filtry.zliczIlePracownikowWDzialach(DodajFrame.getLista(), 1)),
-                        new PieChart.Data("Dzial 2", Filtry.zliczIlePracownikowWDzialach(DodajFrame.getLista(), 2)),
-                        new PieChart.Data("Dzial 3", Filtry.zliczIlePracownikowWDzialach(DodajFrame.getLista(), 3)),
-                        new PieChart.Data("Dzial 4", Filtry.zliczIlePracownikowWDzialach(DodajFrame.getLista(), 4)));
+                        new PieChart.Data("Department 1", Filters.countNumberOfEmployeesInDepertments(AddEmployeeFrame.getList(), 1)),
+                        new PieChart.Data("Department 2", Filters.countNumberOfEmployeesInDepertments(AddEmployeeFrame.getList(), 2)),
+                        new PieChart.Data("Department 3", Filters.countNumberOfEmployeesInDepertments(AddEmployeeFrame.getList(), 3)),
+                        new PieChart.Data("Department 4", Filters.countNumberOfEmployeesInDepertments(AddEmployeeFrame.getList(), 4)));
 
         final PieChart chart = new PieChart(pieChartData);
-        chart.setTitle("STATYSTYKI DZIAŁÓW ");
+        chart.setTitle("Department statistics");
 
         ((Group) scene.getRoot()).getChildren().add(chart);
         stage.setScene(scene);

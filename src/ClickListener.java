@@ -7,15 +7,15 @@ import java.util.function.Consumer;
  */
 public class ClickListener implements MouseListener {
 
-    private Consumer<MouseEvent> _mouseClicked;
+    private Consumer<MouseEvent> mouseClicked;
 
     public ClickListener(Consumer<MouseEvent> mouseClicked){
-        _mouseClicked = mouseClicked;
+        this.mouseClicked = mouseClicked;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        _mouseClicked.accept(e);
+        mouseClicked.accept(e);
     }
 
     @Override

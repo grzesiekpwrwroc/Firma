@@ -39,8 +39,8 @@ public class Functional {
                 .apply("Czołem wielkiej Polsce!");
         System.out.println(wynik);
 
-        Pracownik pracownik= new Pracownik();
-        Pracownik pracownik1;
+        Employee pracownik= new Employee();
+        Employee pracownik1;
         pracownik1=pracownik;
         System.out.println(pracownik.hashCode());
         System.out.println(pracownik1.hashCode());
@@ -65,23 +65,23 @@ public class Functional {
 
 
 
-        List<Pracownik> lista1 = new ArrayList<>();
-        lista1.add(new Pracownik("Grzegorz","Jarus",'m',3,3000,1989,2,true));
-        lista1.add(new Pracownik("Paweł","Nowak",'m',2,10000,1979,1,false));
-        lista1.add(new Pracownik("Monika","Nowak",'k',4,6000,1992,3,true));
-        List<Pracownik> kopia = new ArrayList<>();
+        List<Employee> lista1 = new ArrayList<>();
+        lista1.add(new Employee("Grzegorz","Jarus",'m',3,3000,1989,2,true));
+        lista1.add(new Employee("Paweł","Nowak",'m',2,10000,1979,1,false));
+        lista1.add(new Employee("Monika","Nowak",'k',4,6000,1992,3,true));
+        List<Employee> kopia = new ArrayList<>();
         //kopia.addAll(lista1);
 
-        for (Pracownik x: lista1) {
-            kopia.add(new Pracownik(x));
-            x.dajPodwyzke(2);
+        for (Employee x: lista1) {
+            kopia.add(new Employee(x));
+            x.giveARaise(2);
         }
 
         for(int z=0; z<lista1.size(); z++){
-            System.out.print(lista1.get(z).wyswietlPracownika()+ " ");
+            System.out.print(lista1.get(z).displayEmployee()+ " ");
             System.out.println(lista1.get(z).hashCode());
 
-            System.out.print(kopia.get(z).wyswietlPracownika()+ " ");
+            System.out.print(kopia.get(z).displayEmployee()+ " ");
             System.out.println(kopia.get(z).hashCode());
 
         }

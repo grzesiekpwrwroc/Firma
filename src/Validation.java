@@ -3,168 +3,168 @@ import java.util.regex.Pattern;
 
 public class Validation {
 
-    private static String walidacjaWiadomosc;
+    private static String validateMessage;
 
     public static boolean validateMail(String mail) {
         if (mail.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać E-mail");
+            setValidateMessage("Please enter the E-mail");
             return false;
         }
         if (Pattern.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$", mail))
             return true;
         else {
-            setWalidacjaWiadomosc("Nieprawidłowy format maila");
+            setValidateMessage("Incorrect email format ");
             return false;
         }
 
     }
 
 
-    public static boolean validateImie(String imie) {
-        if (imie.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać imię");
+    public static boolean validateName(String name) {
+        if (name.length() == 0) {
+            setValidateMessage("Please enter the name");
             return false;
         }
-        if (Pattern.matches("[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+", imie))
+        if (Pattern.matches("[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+", name))
             return true;
         else {
-            setWalidacjaWiadomosc("Imię powinno składać się tylko z liter");
+            setValidateMessage("Name should consist of only letters");
             return false;
         }
 
     }
 
-    public static boolean validateNazwisko(String nazwisko) {
-        if (nazwisko.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać nazwisko");
+    public static boolean validateSurname(String surname) {
+        if (surname.length() == 0) {
+            setValidateMessage("Please enter the surname");
             return false;
         }
-        if (Pattern.matches("[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+", nazwisko))
+        if (Pattern.matches("[AaĄąBbCcĆćDdEeĘęFfGgHhIiJjKkLlŁłMmNnŃńOoÓóPpRrSsŚśTtUuWwYyZzŹźŻż]+", surname))
             return true;
         else {
-            setWalidacjaWiadomosc("Nazwisko powinno składać się tylko z liter");
+            setValidateMessage("Surname should consist of only letters");
             return false;
         }
 
     }
 
-    public static boolean validatePlec(String plec) {
-        if (plec.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać płeć");
+    public static boolean validateSex(String sex) {
+        if (sex.length() == 0) {
+            setValidateMessage("Please enter the sex");
             return false;
         }
-        if (plec.length() != 1) {
-            setWalidacjaWiadomosc("Płeć powinna składać się z jednej litery");
+        if (sex.length() != 1) {
+            setValidateMessage("Sex should consist of only ONE letter");
             return false;
-        } else if (plec.equalsIgnoreCase("K") || plec.equalsIgnoreCase("M"))
+        } else if (sex.equalsIgnoreCase("K") || sex.equalsIgnoreCase("M"))
             return true;
         else {
-            setWalidacjaWiadomosc("Płeć powinna składać się z jednej litery M lub K");
+            setValidateMessage("Sex should consist of only ONE letter M or K");
             return false;
         }
     }
 
-    public static boolean validatePensja1(JTextField tekstFieldPensja) {
+    public static boolean validateSalary1(JTextField tekstFieldPensja) {
         if (tekstFieldPensja.getText().length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać pensję");
+            setValidateMessage("Please enter the salary");
             return false;
         } else if (Pattern.matches("\\d+", tekstFieldPensja.getText()))
             return true;
         else {
-            setWalidacjaWiadomosc("Pensja powinna składać się z samych cyfr");
+            setValidateMessage("Salary should consist of only digits");
             return false;
         }
     }
 
-    public static boolean validateDzial(String dzial) {
-        if (dzial.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać numer działu");
+    public static boolean validateDepartment(String department) {
+        if (department.length() == 0) {
+            setValidateMessage("Please enter the department");
             return false;
-        } else if (Pattern.matches("1|2|3|4",dzial))
+        } else if (Pattern.matches("1|2|3|4",department))
             return true;
         else {
-            setWalidacjaWiadomosc("Dział to liczba 1,2,3 lub 4 ");
+            setValidateMessage("Department is a digit 1,2,3 or 4 ");
             return false;
         }
     }
 
 
 
-    public static boolean validateDzialy(String dzialy) {
-        return Pattern.matches("^[1-4](,[1-4])*$", dzialy);
+    public static boolean validateDepartments(String departments) {
+        return Pattern.matches("^[1-4](,[1-4])*$", departments);
     }
 
     @SuppressWarnings("Annotator")
-    public static boolean validateDzialy1(String dzialy) {
-       if (dzialy.length() != 0 && dzialy.length() != 1 && dzialy.length() != 3 && dzialy.length() != 5 && dzialy.length() != 7) {
-            setWalidacjaWiadomosc("Format wejścia to NR,NR,NR,NR");
+    public static boolean validateDepartments1(String departments) {
+       if (departments.length() != 0 && departments.length() != 1 && departments.length() != 3 && departments.length() != 5 && departments.length() != 7) {
+            setValidateMessage("Input format is NR,NR,NR,NR");
             return false;
         }
        else{
-        if (dzialy.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać numer działu");
+        if (departments.length() == 0) {
+            setValidateMessage("Please enter the department");
             return false;
         }
-        if (dzialy.length() == 1) {
-            if (Pattern.matches("1|2|3|4", dzialy))
+        if (departments.length() == 1) {
+            if (Pattern.matches("1|2|3|4", departments))
                 return true;
             else {
-                setWalidacjaWiadomosc("Dział to liczba 1,2,3 lub 4 ");
+                setValidateMessage("Department is a digit 1,2,3 or 4 ");
                 return false;
             }
         }
-        if (dzialy.length() == 3) {
-            if (Pattern.matches("\\d{1},\\d{1}", dzialy))
+        if (departments.length() == 3) {
+            if (Pattern.matches("\\d{1},\\d{1}", departments))
                 return true;
             else {
-                setWalidacjaWiadomosc("Format wejścia to NR,NR,NR,NR");
+                setValidateMessage("Input format is NR,NR,NR,NR");
                 return false;
             }
         }
-        if (dzialy.length() == 5) {
-            if (Pattern.matches("\\d{1},\\d{1},\\d{1}", dzialy))
+        if (departments.length() == 5) {
+            if (Pattern.matches("\\d{1},\\d{1},\\d{1}", departments))
                 return true;
             else {
-                setWalidacjaWiadomosc("Format wejścia to NR,NR,NR,NR");
+                setValidateMessage("Input format is NR,NR,NR,NR");
                 return false;
             }
         }
-        if (dzialy.length() == 7) {
-            if (Pattern.matches("\\d{1},\\d{1},\\d{1},\\d{1}}", dzialy))
+        if (departments.length() == 7) {
+            if (Pattern.matches("\\d{1},\\d{1},\\d{1},\\d{1}}", departments))
                 return true;
             else {
-                setWalidacjaWiadomosc("Format wejścia to NR,NR,NR,NR");
+                setValidateMessage("Input format is NR,NR,NR,NR");
                 return false;
             }
         }}
         return true;
     }
 
-    public static boolean validateRokUrodzenia(String rokUrodzenia) {
-        if (rokUrodzenia.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać rok urodzenia");
+    public static boolean validateBirthYear(String birthYear) {
+        if (birthYear.length() == 0) {
+            setValidateMessage("Please enter the birthyear");
             return false;
-        } else if (Pattern.matches("\\d+", rokUrodzenia)) {
-            if (Integer.parseInt(rokUrodzenia) < 1900 || Integer.parseInt(rokUrodzenia) > 9999) {
-                setWalidacjaWiadomosc("Rok urodzenia powinna być z przedziału <1900,9999>");
+        } else if (Pattern.matches("\\d+", birthYear)) {
+            if (Integer.parseInt(birthYear) < 1900 || Integer.parseInt(birthYear) > 9999) {
+                setValidateMessage("Birthyear is a number between <1900,9999>");
                 return false;
             }
             return true;
         } else {
-            setWalidacjaWiadomosc("Rok urodzenia powinien składać się z samych cyfr");
+            setValidateMessage("Birthyear should consist of only digits");
             return false;
         }
     }
 
-    public static boolean validateIloscDzieci(String iloscDzieci) {
-        if (iloscDzieci.length() == 0) {
-            setWalidacjaWiadomosc("Proszę podać ilość dzieci");
+    public static boolean validateNumberOfChildren(String numberOfChildren) {
+        if (numberOfChildren.length() == 0) {
+            setValidateMessage("Please enther the number of childrens");
             return false;
-        } else if (Pattern.matches("\\d+", iloscDzieci))
+        } else if (Pattern.matches("\\d+", numberOfChildren))
             return true;
 
         else {
-            setWalidacjaWiadomosc("Ilość dzieci powinna składać się z samych cyfr");
+            setValidateMessage("Number of childrens should consist of only digits");
             return false;
         }
     }
@@ -172,49 +172,49 @@ public class Validation {
 
 
 
-    public static boolean validatePensja(String pensja) {
-        if (pensja.length()==0) {
-            setWalidacjaWiadomosc("Proszę podać pensję");
+    public static boolean validateSalary(String salary) {
+        if (salary.length()==0) {
+            setValidateMessage("Please enter the salary");
             return false;
-        } else if (Pattern.matches("\\d+", pensja))
+        } else if (Pattern.matches("\\d+", salary))
             return true;
         else {
-            setWalidacjaWiadomosc("Pensja powinna składać się z samych cyfr");
-            //walidacjaWiadomosc="Pensja powinna składać się z samych cyfr";
+            setValidateMessage("Salary should consist of only digits");
+            //validateMessage="Pensja powinna składać się z samych cyfr";
             return false;
         }
     }
 
-    public static boolean validateProcentPodwyzki(String procent){
-        if(procent.length()==0){
-            setWalidacjaWiadomosc("Proszę podać procent podwyżki");
+    public static boolean validatePercentOfRaise(String percent){
+        if(percent.length()==0){
+            setValidateMessage("Please enter the percent of raise");
             return false;
         }
-        else if(Pattern.matches("\\d+", procent)){
-            if(Float.parseFloat(procent)>=1 && Float.parseFloat(procent)<100)
+        else if(Pattern.matches("\\d+", percent)){
+            if(Float.parseFloat(percent)>=1 && Float.parseFloat(percent)<100)
                 return true;
         }
-        setWalidacjaWiadomosc("Procent podwyżki to liczba z przedziału 1,100");
+        setValidateMessage("Percent of raise is a number between 1,100");
         return false;
     }
-    public static boolean validateBudzetPodwyzki(String budzet){
-        if(budzet.length()==0){
-            setWalidacjaWiadomosc("Proszę podać budżet podwyżki");
+    public static boolean validateBudgetOfRaise(String budget){
+        if(budget.length()==0){
+            setValidateMessage("Please enter the budget of raise");
             return false;
         }
-        else if(Pattern.matches("\\d+", budzet)){
+        else if(Pattern.matches("\\d+", budget)){
             return true;
         }
-        setWalidacjaWiadomosc("Budżet to dodatnia liczba");
+        setValidateMessage("Budget is a positive number");
         return false;
     }
 
 
-    public static void setWalidacjaWiadomosc(String wiadomosc) {
-        walidacjaWiadomosc = wiadomosc;
+    public static void setValidateMessage(String message) {
+        validateMessage = message;
     }
-    public static String getWalidacjaWiadomosc(){
-        return walidacjaWiadomosc;
+    public static String getValidateMessage(){
+        return validateMessage;
     }
 
 
