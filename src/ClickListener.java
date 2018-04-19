@@ -2,9 +2,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.function.Consumer;
 
-/**
- * Created by md on 2018-04-14.
- */
+
 public class ClickListener implements MouseListener {
 
     private Consumer<MouseEvent> mouseClicked;
